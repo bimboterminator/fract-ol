@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmesseng <dmesseng@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: dmesseng <dmesseng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:18:53 by dmesseng          #+#    #+#             */
-/*   Updated: 2022/02/20 21:36:20 by dmesseng         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:51:46 by dmesseng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ void	destroy_img(t_fract *fract)
 		free(fract->img);
 		fract->img = NULL;
 	}
+}
+
+void	set_origin(t_fract	*fract)
+{
+	if (!fract)
+		return ;
+	fract->img = NULL;
+	fract->max = init_complex(2.0, 1.5);
+	fract->min = init_complex(-2.0, -2.0);
+	fract->max.Im = fract->min.Im + (fract->max.Re - fract->min.Re)
+				* fract->win->height / fract->win->width;
+	fract->max_iterations = 150;
+	fract->shift = 0;
+	draw_fractol(fract);
 }

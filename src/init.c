@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmesseng <dmesseng@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: dmesseng <dmesseng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 15:04:54 by dmesseng          #+#    #+#             */
-/*   Updated: 2022/02/20 22:13:52 by dmesseng         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:51:27 by dmesseng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ void	set_default(t_fract *fract)
 	if (!fract)
 		return ;
 	fract->img = NULL;
-	fract->max = init_complex(2.0, 1.0);
+	fract->max = init_complex(2.0, 1.5);
 	fract->min = init_complex(-2.0, -2.0);
 	fract->max.Im = fract->min.Im + (fract->max.Re - fract->min.Re)
 				* fract->win->height / fract->win->width;
-	fract->max_iterations = 256;
+	fract->max_iterations = 150;
+	fract->shift = 0;
 }
 
 void	init_size(t_mlx_win *win, int width, int height)

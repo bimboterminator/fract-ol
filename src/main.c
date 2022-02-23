@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmesseng <dmesseng@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: dmesseng <dmesseng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 21:50:14 by dmesseng          #+#    #+#             */
-/*   Updated: 2022/02/20 21:18:21 by dmesseng         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:17:46 by dmesseng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "../libft/libft.h"
+#include "libft.h"
 
 static void	print_help(void);
 static int parse_args(int argc, char **argv, int *width, int *height);
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 
 	width = 0;
 	height = 0;
+	type = -1;
 	if (argc == 1)
 		print_help();
 	else
@@ -49,8 +50,8 @@ static t_fract	*init_fractol(int type, int width, int height)
 	fractol->type = type;
 	mlx_hook(fractol->win->win, 2, 0, key_pressed, fractol);
 	mlx_hook(fractol->win->win, 17, 0, close_win, fractol);
-	mlx_hook(fractol->win->win, 4, 0, zoom_in, fractol);
-	mlx_hook(fractol->win->win, 5, 0, zoom_out, fractol);
+	mlx_hook(fractol->win->win, 4, 0, zoom, fractol);
+	mlx_hook(fractol->win->win, 5, 0, zoom, fractol);
 	return (fractol);
 }
 

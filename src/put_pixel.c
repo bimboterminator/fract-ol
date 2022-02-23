@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmesseng <dmesseng@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: dmesseng <dmesseng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:52:48 by dmesseng          #+#    #+#             */
-/*   Updated: 2022/02/20 21:13:26 by dmesseng         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:14:17 by dmesseng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "../libft/libft.h"
+#include "libft.h"
 
 int	get_trgb(int t, int r, int g, int b)
 {
@@ -25,7 +25,7 @@ void	img_put(t_img_inf* image, int x, int y, int color)
 	if (!image)
 		return ;
 	dst = image->addr + (y * image->line_length + x * (image->bpp / 8));
-	*(unsigned int *)dst = color;
+	*(unsigned int *)dst =  color;
 	
 }
 

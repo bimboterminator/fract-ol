@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmesseng <dmesseng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/20 15:09:10 by dmesseng          #+#    #+#             */
-/*   Updated: 2022/02/23 12:14:37 by dmesseng         ###   ########.fr       */
+/*   Created: 2022/02/23 13:01:39 by dmesseng          #+#    #+#             */
+/*   Updated: 2022/02/23 13:59:23 by dmesseng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#ifndef KEYS_H
+# define KEYS_H
 
-void	draw_fractol(t_fract *fract)
-{
-	t_img_inf	*pixmap;
+# define SCROLL_UP 4
+# define SCROLL_DOWN	5
 
-	if (!fract)
-		return ;
-	if (fract->type == MANDELBROT)
-		pixmap = draw_mandelbrot(fract);
-	if (!pixmap)
-		return ;
-	if (fract->img != NULL)
-		destroy_img(fract);
-	fract->img = pixmap;
-	mlx_put_image_to_window(fract->win->mlx, fract->win->win, fract->img->img, 0, 0);
-}
+# define ARROW_UP			126
+# define ARROW_DOWN			125
+# define ARROW_LEFT			123
+# define ARROW_RIGHT		124
+
+# define NUM_PAD_PLUS		69
+# define NUM_PAD_MINUS		78
+
+# define ESC		53
+# define SPACE		49
+# define C			8
+# define R			15
+# define PLUS		24
+# define MINUS		27
+#endif
